@@ -37,23 +37,11 @@ const colors = {
 };
 const Rating : FC<any> = ({ rating, ...props }) => {
 
-    // ** Sort **
-    const [fillStarValue, setFillStarValue] = useState(true);
-    const fillStarValueHandle = () => {
-        if(fillStarValue)   setFillStarValue(false);
-        else setFillStarValue(true);
-    }
 
     return (
         <div className="absolute inset-x-0 bottom-0 h-16 ml-8" >
             <div className="flex space-x-12 ...">
                 <PrettyRating value={rating} icons={icons.heart} colors={colors.heart} max={10} />
-            </div>
-            <div className="absolute inset-y-0 right-0 w-16 " onClick={e => fillStarValueHandle()}>
-                {fillStarValue?
-                    <Star  style={{fill: "yellow"}}/> :
-                    <StarOutlineIcon/>
-                }
             </div>
         </div>
     );
